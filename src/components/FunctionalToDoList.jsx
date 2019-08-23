@@ -3,6 +3,7 @@ import React from "react";
 const FunctionalToDoList = props => {
   const [tasks, setTasks] = React.useState([]);
   const [input, setInput] = React.useState("");
+  React.useEffect();
 
   const handleChange = event => {
     setInput(event.target.value);
