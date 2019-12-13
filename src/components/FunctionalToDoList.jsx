@@ -1,12 +1,19 @@
 import React from "react";
 
 const FunctionalToDoList = props => {
-  const [tasks, setTasks] = React.useState([]);
+  const taskString = localStorage.getItem("tasks") || "";
+  const initialTasks = taskString.split(" ; ");
+  const [tasks, setTasks] = React.useState(initialTasks);
   const [input, setInput] = React.useState("");
 
   const handleChange = event => {
     setInput(event.target.value);
   };
+
+  React.useEffect(() => {
+    const encodedTasks = tasks.join(" ; ");
+    localStorage.setItem("tasks", encodedTasks);
+  }, [tasks]);
 
   const addTask = () => {
     setTasks([...tasks, input]);
