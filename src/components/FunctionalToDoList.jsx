@@ -30,20 +30,27 @@ const FunctionalToDoList = props => {
   };
 
   return (
-    <div>
+    <div className="todo-list">
       <h1>Current tasks:</h1>
       <ul>
-        {tasks.map((task, i) => (
+        {tasks.map((task, completedTasks, i) => (
           <li key={i}>
-            <button data-index={i} onClick={deleteTask}>
-              Delete
-            </button>
             {task}
+
+            <span className="buttons">
+              <button data-index={i} onClick={deleteTask}>
+                Delete
+              </button>
+            </span>
           </li>
         ))}
       </ul>
       <div>
-        <input onChange={handleChange} value={input} />
+        <input
+          onChange={handleChange}
+          value={input}
+          placeholder="Add a todo..."
+        />
         <button onClick={addTask}>Add task</button>
         <p>Number of tasks: {tasks.length}</p>
       </div>
