@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FunctionalToDoList = props => {
   const taskString = localStorage.getItem("tasks") || "";
   const initialTasks = taskString.split(" ; ");
-  const [tasks, setTasks] = React.useState(initialTasks);
-  const [input, setInput] = React.useState("");
+  const [tasks, setTasks] = useState(initialTasks);
+  const [input, setInput] = useState("");
 
   const handleChange = event => {
     setInput(event.target.value);
@@ -29,11 +29,15 @@ const FunctionalToDoList = props => {
     });
   };
 
+  // const completeTask =()=>{
+
+  // }
+
   return (
     <div className="todo-list">
       <h1>Current tasks:</h1>
       <ul>
-        {tasks.map((task, completedTasks, i) => (
+        {tasks.map((task, i) => (
           <li key={i}>
             {task}
 
@@ -41,6 +45,9 @@ const FunctionalToDoList = props => {
               <button data-index={i} onClick={deleteTask}>
                 Delete
               </button>
+              {/* <button data-index={i} onClick={completeTask}>
+                Complete
+              </button> */}
             </span>
           </li>
         ))}

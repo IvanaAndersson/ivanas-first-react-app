@@ -5,8 +5,9 @@
 
 /* Counter component */
 .counter,
-.todo-list {
-  width: 20%;
+.todo-list,
+.currency-converter {
+  width: 30%;
   text-align: center;
   padding: 1rem;
   margin: 1rem;
@@ -32,4 +33,20 @@
 /* Todo list component */
 .todo-list ul {
   list-style-type: none;
+}
+
+.input-styles {
+  border: 1px solid #333;
+  border-radius: 0.3rem;
+  padding: 0.25rem;
+  width: 15rem;
+}
+
+select {
+  margin-left: 0.5rem;
+}
+
+.equals {
+  font-weight: bold;
+  font-size: 2rem;
 }
