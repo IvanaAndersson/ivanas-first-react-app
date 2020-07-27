@@ -22,7 +22,7 @@ const Body = () => {
         value={text}
         ref={textareaRef}
         disabled={!isTimeRunning}
-        placeholder="Textarea is disabled"
+        placeholder={`Textarea is ${isTimeRunning ? "enabled" : "disabled"}`}
       />
       <h4>Time remaining: {timeRemaining}</h4>
       <button onClick={startGame} className={`${theme}-theme`}>

@@ -16,7 +16,7 @@ const useTypingGame = (startingTime = 10) => {
   const calculateWordCount = (string) => {
     const words = string.trim().split(/[\s,.]+/);
     const filteredWordsArray = words.filter((word) => word !== "");
-    const uniqueWordsArray = [...new Set(words)];
+    const uniqueWordsArray = [...new Set(filteredWordsArray)];
     return [filteredWordsArray.length, uniqueWordsArray.length];
   };
 
@@ -28,22 +28,22 @@ const useTypingGame = (startingTime = 10) => {
     textareaRef.current.focus();
   };
 
-  const endGame = () => {
-    setIsTimeRunning(false);
-    const words = calculateWordCount(text);
-    setWordCount(words[0]);
-    setUniqueWordCount(words[1]);
-  };
-
   useEffect(() => {
     if (isTimeRunning === true && timeRemaining > 0) {
       setTimeout(() => {
         setTimeRemaining((currTime) => currTime - 1);
       }, 1000);
-    } else if (timeRemaining === 0) {
-      endGame();
     }
   }, [isTimeRunning, timeRemaining]);
+
+  useEffect(() => {
+    if (timeRemaining === 0) {
+      setIsTimeRunning(false);
+      const words = calculateWordCount(text);
+      setWordCount(words[0]);
+      setUniqueWordCount(words[1]);
+    }
+  }, [timeRemaining, text]);
 
   return {
     text,
