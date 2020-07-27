@@ -1,55 +1,69 @@
-html,
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 body {
-  background: black;
-  color: #00b800;
   margin: 0;
   padding: 0;
-  padding-top: 10px;
-  font-family: "Press Start 2P", cursive;
-  text-align: center;
+  box-sizing: border-box;
 }
 
 body {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
   font-weight: 400;
+}
+
+main {
+  width: 100vw;
+  min-height: 100vh;
+  background: black;
+  color: #00b800;
+}
+
+main.light-theme {
+  background: #eee;
+  color: #000;
 }
 
 button {
   font-family: "Press Start 2P", cursive;
   display: block;
   margin: 0 auto;
-  border: none;
+  border: 2px solid #000;
   background: #00b800;
-  padding: 10px 20px;
+  padding: 0.75rem 1.25rem;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  background: #7dff7d;
 }
 
 button:disabled {
   cursor: not-allowed;
 }
 
-h1 {
-  font-size: 20px;
-  text-align: center;
+button.light-theme {
+  background: #eee;
+  border: 2px solid #000;
 }
 
 textarea {
   font-family: "Press Start 2P", cursive;
   border: 3px solid black;
   width: 90%;
+  height: 18rem;
+  resize: none;
   margin: 0 auto;
   outline: none;
-  height: 200px;
+  padding: 0.75rem;
   background: #00b800;
-  padding: 10px;
 }
 
 textarea:disabled {
   background-color: gray;
-}
-
-div.light-theme {
-  background: #eee;
-}
-button.light-theme {
-  background: #eee;
 }

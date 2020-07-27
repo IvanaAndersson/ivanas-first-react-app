@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../themeContext";
 
-const Button = () => {
-  return <div>Button</div>;
+const Button = (props) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  return (
+    <button onClick={toggleTheme} className={`${theme}-theme`}>
+      Switch theme
+    </button>
+  );
 };
 
 export default Button;
