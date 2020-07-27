@@ -1,19 +1,14 @@
 import React from "react";
-import "./App.css";
-// import Counter from "./components/Counter";
-// import Addition from "./components/Addition";
-import FunctionalToDoList from "./components/FunctionalToDoList";
-import FunctionalCounter from "./components/FunctionalCounter";
-import CurrencyConverter from "./components/CurrencyConverter";
+import Button from "./components/Button";
+import Body from "./components/Body";
 
-function App() {
+const App = () => {
   return (
     <>
-      <FunctionalCounter />
-      <FunctionalToDoList />;
-      <CurrencyConverter />;
+      <Button />
+      <Body />
     </>
   );
-}
+};
 
 export default App;
